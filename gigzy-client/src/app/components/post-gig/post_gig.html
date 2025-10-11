@@ -1,0 +1,22 @@
+
+  <div class="auth-container">
+    <div class="logo">Gigzy</div>
+    <div class="tagline">Post Your Gig and Get It Seen!</div>
+    
+    <div class="auth-card">
+      <h2>Post Your Gig</h2>
+      <form #gigForm="ngForm" (ngSubmit)="onSubmit()">
+        <input type="text" id="title" name="title" placeholder="Gig Title" [(ngModel)]="gig.title" required />
+        <textarea id="description" name="description" placeholder="Description" rows="4" [(ngModel)]="gig.description" required></textarea>
+        <input type="text" id="location" name="location" placeholder="Location (City, Area)" [(ngModel)]="gig.location" required />
+        <input type="url" id="applyLink" name="applyLink" placeholder="Link to Apply (https://example.com)" [(ngModel)]="gig.applyLink" required />
+              <button type="submit" class="btn-primary" [disabled]="!gigForm.form.valid">Post Gig</button>
+            </form>
+            <p *ngIf="successMsg" class="success-message">{{ successMsg }}</p>
+            <p *ngIf="errorMsg" class="error-message">{{ errorMsg }}</p>
+            <div class="switch">        <span>Want to explore gigs? <a routerLink="/explore">Click here</a></span>
+      </div>
+    </div>
+  </div>
+
+

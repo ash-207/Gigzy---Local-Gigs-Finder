@@ -1,0 +1,15 @@
+<div class="auth-container">
+  <h1 class="logo">Gigzy</h1>
+  <p class="tagline">Find gigs. Build skills. Get noticed.</p>
+  
+  <div class="auth-card">
+    <h2>Login</h2>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+      <input type="email" name="email" placeholder="Email" [(ngModel)]="user.email" required>
+      <input type="password" name="password" placeholder="Password" [(ngModel)]="user.password" required>
+      <button type="submit" class="btn-primary" [disabled]="!loginForm.form.valid">Login</button>
+    </form>
+    <div *ngIf="errorMsg" class="error-message">{{ errorMsg }}</div>
+    <p class="switch">Don't have an account? <a routerLink="/register">Sign up</a></p>
+  </div>
+</div>

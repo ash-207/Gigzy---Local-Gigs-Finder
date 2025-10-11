@@ -1,0 +1,299 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #fdfdfd;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+/* Smooth page fade transitions */
+body {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #444;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #2575fc;
+  font-weight: 600;
+}
+
+.nav-buttons .btn-outline,
+.nav-buttons .btn-primary {
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-outline {
+  border: 1px solid #2575fc;
+  color: #2575fc;
+  background: transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 4rem 10%;
+  background: linear-gradient(135deg, #eef2ff, #ffffff);
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Section Headings */
+section h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+/* Mission & Vision */
+.mission,
+.vision {
+  padding: 3rem 10%;
+  text-align: center;
+  background: #fff;
+}
+
+/* Offer */
+.offer {
+  padding: 3rem 10%;
+  background: #f9f9ff;
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.offer-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer */
+.footer {
+  padding: 2rem 5%;
+  background: #222;
+  color: #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  margin-left: 1rem;
+  color: #ddd;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #fdfdfd;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #444;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #2575fc;
+  font-weight: 600;
+}
+
+.nav-buttons .btn-outline,
+.nav-buttons .btn-primary {
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-outline {
+  border: 1px solid #2575fc;
+  color: #2575fc;
+  background: transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 4rem 10%;
+  background: linear-gradient(135deg, #eef2ff, #ffffff);
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Section Headings */
+section h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+/* Mission & Vision */
+.mission,
+.vision {
+  padding: 3rem 10%;
+  text-align: center;
+  background: #fff;
+}
+
+/* Offer */
+.offer {
+  padding: 3rem 10%;
+  background: #f9f9ff;
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.offer-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer */
+.footer {
+  padding: 2rem 5%;
+  background: #222;
+  color: #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  margin-left: 1rem;
+  color: #ddd;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: white;
+}

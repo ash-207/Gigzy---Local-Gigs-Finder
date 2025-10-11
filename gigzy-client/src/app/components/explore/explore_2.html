@@ -1,0 +1,54 @@
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <h1 class="logo">Gigzy</h1>
+    <nav>
+      <a routerLink="/">Home</a>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a href="#">Saved Gigs</a>
+      <a href="#">Resume Tools</a>
+      <a routerLink="/about">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="user-info">
+        <span class="username">Hi, Aayush</span>
+        <button class="logout-btn">Logout</button>
+      </div>
+  </header>
+
+  <section class="hero">
+    <h2>Explore Gigs 🔎</h2>
+    <div class="search-bar">
+      <input type="text" placeholder="Search gigs, internships, part-time...">
+      <button class="search-btn">Search</button>
+    </div>
+    <div class="filters">
+      <button class="filter-btn"><span>📍</span> Location</button>
+      <button class="filter-btn"><span>🎯</span> Category</button>
+      <button class="filter-btn"><span>💰</span> Pay</button>
+      <button class="filter-btn"><span>⏰</span> Part-Time</button>
+    </div>
+  </section>
+
+  <!-- Main Layout -->
+  <div class="container">
+    <!-- Left Column: Gigs -->
+<div class="gig-list" *ngIf="gigs.length > 0; else noGigs">
+    <div class="gig-card" *ngFor="let gig of gigs">
+      <h3>{{ gig.title }}</h3>
+      <p>📍 {{ gig.location }}</p>
+      <p class="desc">{{ gig.description }}</p>
+      <a [href]="gig.applyLink" target="_blank" class="btn-secondary">Apply Now</a>
+    </div>
+  </div>
+  <ng-template #noGigs>
+    <p>No gigs posted yet. Be the first!</p>
+  </ng-template>
+
+<!-- Right Column: Map -->
+<div class="gig-map">
+  <h2>Gig Map 🗺️</h2>
+  <div id="map"></div>
+</div>
+</div>
+

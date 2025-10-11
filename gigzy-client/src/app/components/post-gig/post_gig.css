@@ -1,0 +1,95 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(120deg, #6a11cb, #2575fc);
+}
+
+.auth-container { text-align: center; }
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffffff, #f1f1f1, #e6e6e6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.2rem;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.auth-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 360px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  margin: auto;
+  text-align: left;
+}
+
+.auth-card h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.auth-card form input,
+.auth-card form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.6rem 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  display: block;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover { opacity: 0.9; }
+
+.success-message {
+  text-align: center;
+  color: #4caf50;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.error-message {
+  text-align: center;
+  color: #f44336; /* Red color for errors */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.switch {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.switch a {
+  color: #2575fc;
+  font-weight: 600;
+  text-decoration: none;
+}
