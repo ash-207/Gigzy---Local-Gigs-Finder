@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+
+// Import middleware
+import auth from './middleware/auth.js';
 
 // Import models
 import Gig from './models/Gig.js';
@@ -30,7 +34,22 @@ app.post("/api/users/register", async (req, res) => {
     user.password = await bcrypt.hash(password, salt);
 
     await user.save();
-    res.status(201).json({ msg: "User registered successfully" });
+
+    const payload = {
+      user: {
+        id: user.id,
+      },
+    };
+
+    jwt.sign(
+      payload,
+      process.env.JWT_SECRET,
+      { expiresIn: 3600 }, // expires in 1 hour
+      (err, token) => {
+        if (err) throw err;
+        res.status(201).json({ token });
+      },
+    );
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");
@@ -50,14 +69,38 @@ app.post("/api/users/login", async (req, res) => {
         if (!isMatch) {
             return res.status(400).json({ msg: "Invalid credentials" });
         }
-        // In a real app, you'd return a JWT here
-        res.json({ msg: "Logged in successfully" });
+        
+        const payload = {
+            user: {
+                id: user.id
+            }
+        };
+
+        jwt.sign(
+            payload,
+            process.env.JWT_SECRET,
+            { expiresIn: 3600 }, // expires in 1 hour
+            (err, token) => {
+                if (err) throw err;
+                res.json({ token });
+            }
+        );
     } catch (err) {
         console.error(err.message);
         res.status(500).send("Server error");
     }
 });
 
+// Get current user
+app.get('/api/users/me', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select('-password');
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 // Get all gigs
 app.get("/api/gigs", async (req, res) => {
@@ -71,7 +114,7 @@ app.get("/api/gigs", async (req, res) => {
 });
 
 // Post a new gig
-app.post("/api/gigs", async (req, res) => {
+app.post("/api/gigs", auth, async (req, res) => {
   const { title, description, location, applyLink } = req.body;
   try {
     const newGig = new Gig({
@@ -99,5 +142,5 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB Connected"))
   .catch(err => console.error("❌ DB Error:", err));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
