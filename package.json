@@ -1,0 +1,15 @@
+{
+  "name": "gigzy",
+  "version": "1.0.0",
+  "description": "Gigzy - A platform for finding and posting gigs",
+  "main": "gigzy-server/server.js",
+  "scripts": {
+    "install:server": "npm install --prefix gigzy-server",
+    "install:client": "npm install --prefix gigzy-client",
+    "install": "npm run install:server && npm run install:client",
+    "build": "npm run build --prefix gigzy-client",
+    "start": "node gigzy-server/server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

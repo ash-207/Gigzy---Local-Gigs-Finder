@@ -4,6 +4,11 @@ import cors from "cors";
 import dotenv from "dotenv";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Import middleware
 import auth from './middleware/auth.js';
@@ -132,9 +137,14 @@ app.post("/api/gigs", auth, async (req, res) => {
 });
 
 
-// Basic route
-app.get("/", (req, res) => {
-  res.send("Gigzy backend running 🚀");
+// Serve static files from the Angular app
+app.use(express.static(path.join(__dirname, '../gigzy-client/dist/gigzy-client/browser')));
+
+// API routes should be here
+
+// Catch-all route to serve the Angular app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../gigzy-client/dist/gigzy-client/browser/index.html'));
 });
 
 // MongoDB connection
