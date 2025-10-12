@@ -1,9 +1,12 @@
-/* Reset */
-* body {
+
+/* General Body Styles */
+body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
-  background: #fff;
+  background-color: #f9f9f9;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
 }
 
 /* Navbar */
@@ -36,6 +39,7 @@
 .nav-buttons button {
   margin-left: 10px;
 }
+
 /* Buttons */
 .btn-primary {
   background: #7c3aed;
@@ -86,155 +90,97 @@
   font-weight: 600;
   transition: background 0.3s ease;
 }
-body {
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
-}
-/* Hero / Search Section */
+
+/* Hero Search Section */
 .hero {
   text-align: center;
-  margin: 50px 0;
+  padding: 40px 20px;
+  background-color: #fff;
 }
-
 .hero h2 {
-  font-size: 28px;
+  font-size: 32px;
   color: #4b3cd1;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
-
 .search-bar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 10px;
 }
-
 .search-bar input {
-  width: 450px;
-  padding: 12px 15px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px 0 0 8px;
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px 0 0 10px;
   outline: none;
-  font-size: 15px;
+  font-size: 16px;
 }
-
 .search-btn {
   background: linear-gradient(90deg, #7b2ff7, #f107a3);
   color: white;
   border: none;
-  padding: 12px 20px;
-  border-radius: 0 8px 8px 0;
+  padding: 15px 25px;
+  border-radius: 0 10px 10px 0;
   cursor: pointer;
   font-weight: 600;
+  font-size: 16px;
+  transition: opacity 0.3s;
 }
-
 .search-btn:hover {
   opacity: 0.9;
 }
 
+/* Filters */
 .filters {
-  margin-top: 20px;
+  margin-top: 25px;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 15px;
   flex-wrap: wrap;
 }
-
 .filter-btn {
   border: 1px solid #ddd;
   background: #fff;
-  padding: 8px 15px;
-  border-radius: 20px;
+  padding: 10px 20px;
+  border-radius: 25px;
   font-size: 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 6px;
-  transition: 0.3s;
+  gap: 8px;
+  transition: all 0.3s;
 }
-
 .filter-btn:hover {
-  background: #f5f5f5;
+  background: #f0f0f0;
+  border-color: #ccc;
+}
+.filter-btn.active {
+  background-color: #7c3aed;
+  color: #fff;
+  border-color: #7c3aed;
 }
 
-/* Layout */
-
+/* Main Content Layout */
 .container {
   display: flex;
-  gap: 20px; /* spacing between list & map */
+  gap: 30px;
+  padding: 20px;
+  align-items: flex-start;
 }
 
-/* Gig Cards */
-.gig-card {
-  border: 1px solid #eee;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-  background: #fafafa;
-  transition: all 0.2s ease;
-}
-.gig-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
-}
-.gig-card h3 {
-  color: #2563eb;
-  margin-bottom: 8px;
-  font-size: 20px;
-}
-.gig-card p {
-  margin: 6px 0;
-  color: #555;
-  font-size: 15px;
-}
-.gig-card button {
-  margin-top: 10px;
-  padding: 8px 14px;
-  border: 1px solid #333;
-  background: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.gig-card button:hover {
-  background: #333;
-  color: white;
-}
-/* Gig list takes ~70% */
+/* Gig List */
 .gig-list {
   flex: 1;
-  max-height: 70vh; /* match the map height */
-  overflow-y: auto; /* enable vertical scroll */
-  padding-right: 10px; /* avoid text cutoff under scrollbar */
+  max-height: 80vh;
+  overflow-y: auto;
+  padding-right: 15px;
 }
-
-.map-container {
-  flex: 0 0 60%;   /* map takes 60% */
-  min-height: 70vh;
-}
-.gig-map {
-  background: #fff;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.gig-map h2 {
-  margin-bottom: 12px;
-  font-size: 1.4rem;
-  color: #4c3cff;
-  font-weight: 600;
-}
-
-.gig-map #map {
-  height: 70vh;
-  border-radius: 12px;
-}
-
-
-/* Optional: style scrollbar for nice look */
 .gig-list::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 .gig-list::-webkit-scrollbar-thumb {
   background: #ccc;
@@ -244,9 +190,102 @@ body {
   background: #7c3aed;
 }
 
+/* Gig Cards */
+.gig-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.gig-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+}
+.gig-card h3 {
+  color: #2563eb;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+.gig-card p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.gig-card .details-btn {
+  margin-top: 15px;
+  padding: 10px 18px;
+  border: none;
+  background: #7c3aed;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.gig-card .details-btn:hover {
+  background: #5b21b6;
+}
 
-/* Map */
+/* Map Container */
+.map-container {
+  flex: 0 0 55%;
+  position: sticky;
+  top: 100px; /* Adjust based on navbar height */
+  height: 80vh;
+}
+.gig-map {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  height: 100%;
+}
+.gig-map h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #4c3cff;
+  font-weight: 600;
+}
 #map {
-  height: 500px;
-  border-radius: 10px;
+  height: calc(100% - 50px); /* Adjust based on h2 height */
+  border-radius: 12px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+  }
+  .map-container {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 50vh; /* Adjust height for smaller screens */
+    position: static;
+  }
+  .gig-list {
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+  .search-bar {
+    flex-direction: column;
+    box-shadow: none;
+  }
+  .search-bar input, .search-btn {
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .search-btn {
+    margin-top: 10px;
+  }
 }

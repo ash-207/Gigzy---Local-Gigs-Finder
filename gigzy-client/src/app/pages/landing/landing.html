@@ -1,1 +1,112 @@
-<p>landing works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gigzy - Find Local Internships & Gigs</title>
+  <link rel="stylesheet" href="landing_page_style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <h1 class="logo">Gigzy</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="explore_2.html">Explore Gigs</a>
+      <a href="#">Saved Gigs</a>
+      <a href="#">Resume Tools</a>
+      <a href="about_page.html">About</a>
+    </nav>
+    <div class="nav-buttons">
+      <button class="btn-outline" onclick="window.location.href='login.html'">Login</button>
+      <button class="btn-primary" onclick="window.location.href='register.html'">Sign Up</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Discover Local Internships & Gigs <br /> Right Where You Live 🚀</h2>
+    <p>
+      Gigzy helps students, part-timers, and freelancers connect with local businesses
+      and opportunities — from internships to creative gigs.
+    </p>
+    <div class="hero-buttons">
+      <button class="btn-primary">Find Gigs</button>
+      <button class="btn-secondary">Post a Gig</button>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <h3>Why Gigzy?</h3>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4>🎯 Local Focus</h4>
+        <p>Find gigs and internships nearby with location-based search and filters.</p>
+      </div>
+      <div class="feature-card">
+        <h4>⚡ Quick Apply</h4>
+        <p>Apply with one click using your profile or resume — no lengthy forms.</p>
+      </div>
+      <div class="feature-card">
+        <h4>🤝 Community Trust</h4>
+        <p>Reviews and ratings ensure transparency between students & employers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gigs Preview -->
+  <section id="gigs" class="gigs">
+    <h3>Featured Gigs Near You</h3>
+    <div class="gig-grid">
+      <div class="gig-card">
+        <h4>Social Media Intern</h4>
+        <p>Local Café — Pune</p>
+        <button class="btn-primary">Apply Now</button>
+      </div>
+      <div class="gig-card">
+        <h4>Event Musician</h4>
+        <p>Downtown Club — Bangalore</p>
+        <button class="btn-primary">Apply Now</button>
+      </div>
+      <div class="gig-card">
+        <h4>Part-time Assistant</h4>
+        <p>Startup Hub — Delhi</p>
+        <button class="btn-primary">Apply Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Gigzy. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </footer>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Add fade-in effect when page loads
+    document.body.classList.remove("fade-out");
+
+    // Handle link clicks
+    document.querySelectorAll("a").forEach(link => {
+      if (link.hostname === window.location.hostname) { // internal links only
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetUrl = this.href;
+
+          document.body.classList.add("fade-out");
+
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 400); // match CSS transition time
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>

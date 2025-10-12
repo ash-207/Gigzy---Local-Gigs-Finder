@@ -38,5 +38,7 @@ export class ExploreComponent implements OnInit, AfterViewInit {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
+
+    setTimeout(() => this.map.invalidateSize(), 0);
   }
 }
