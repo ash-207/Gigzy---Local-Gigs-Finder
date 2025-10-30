@@ -7,7 +7,7 @@ import { GigService } from '../../services/gig.service';
 @Component({
   selector: 'app-post-gig',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule],
   templateUrl: './post_gig.html',
   styleUrls: ['./post_gig.css'],
 })

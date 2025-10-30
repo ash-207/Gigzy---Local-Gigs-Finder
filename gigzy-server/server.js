@@ -119,8 +119,9 @@ app.get("/api/gigs", async (req, res) => {
 });
 
 // Post a new gig
-app.post("/api/gigs", auth, async (req, res) => {
+app.post("/api/gigs", async (req, res) => {
   const { title, description, location, applyLink } = req.body;
+  console.log('Received gig data:', req.body);
   try {
     const newGig = new Gig({
       title,
@@ -138,13 +139,13 @@ app.post("/api/gigs", auth, async (req, res) => {
 
 
 // Serve static files from the Angular app
-app.use(express.static(path.join(__dirname, '../gigzy-client/dist/gigzy-client/browser')));
+app.use(express.static(path.join(__dirname, '../gigzy-client/dist/browser')));
 
 // API routes should be here
 
 // Catch-all route to serve the Angular app
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../gigzy-client/dist/gigzy-client/browser/index.html'));
+  res.sendFile(path.join(__dirname, '../gigzy-client/dist/browser/index.html'));
 });
 
 // MongoDB connection

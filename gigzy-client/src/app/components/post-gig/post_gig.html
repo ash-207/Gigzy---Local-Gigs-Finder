@@ -1,22 +1,128 @@
 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Your Gig - Gigzy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Your provided CSS */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #6a11cb, #2575fc);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    body.fade-in { opacity: 1; }
+
+    .auth-container { text-align: center; }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ffffff, #f1f1f1, #e6e6e6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.2rem;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+
+    .auth-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      width: 360px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      margin: auto;
+      text-align: left;
+    }
+
+    .auth-card h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: #333;
+      text-align: center;
+    }
+
+    .auth-card form input,
+    .auth-card form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.6rem 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+      display: block;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover { opacity: 0.9; }
+
+    .success-message {
+      text-align: center;
+      color: #4caf50;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .switch {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .switch a {
+      color: #2575fc;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  </style>
+
+
   <div class="auth-container">
     <div class="logo">Gigzy</div>
     <div class="tagline">Post Your Gig and Get It Seen!</div>
     
     <div class="auth-card">
       <h2>Post Your Gig</h2>
-      <form #gigForm="ngForm" (ngSubmit)="onSubmit()">
-        <input type="text" id="title" name="title" placeholder="Gig Title" [(ngModel)]="gig.title" required />
-        <textarea id="description" name="description" placeholder="Description" rows="4" [(ngModel)]="gig.description" required></textarea>
-        <input type="text" id="location" name="location" placeholder="Location (City, Area)" [(ngModel)]="gig.location" required />
-        <input type="url" id="applyLink" name="applyLink" placeholder="Link to Apply (https://example.com)" [(ngModel)]="gig.applyLink" required />
-              <button type="submit" class="btn-primary" [disabled]="!gigForm.form.valid">Post Gig</button>
-            </form>
-            <p *ngIf="successMsg" class="success-message">{{ successMsg }}</p>
-            <p *ngIf="errorMsg" class="error-message">{{ errorMsg }}</p>
-            <div class="switch">        <span>Want to explore gigs? <a routerLink="/explore">Click here</a></span>
+      <form (ngSubmit)="onSubmit()">
+        <input type="text" id="title" placeholder="Gig Title" [(ngModel)]="gig.title" name="title" required />
+        <textarea id="description" placeholder="Description" rows="4" [(ngModel)]="gig.description" name="description" required></textarea>
+        <input type="text" id="location" placeholder="Location (City, Area)" [(ngModel)]="gig.location" name="location" required />
+        <input type="url" id="applyLink" placeholder="Link to Apply (https://example.com)" [(ngModel)]="gig.applyLink" name="applyLink" required />
+        <button type="submit" class="btn-primary">Post Gig</button>
+      </form>
+      <p class="success-message" *ngIf="successMsg">{{ successMsg }}</p>
+      <p class="error-message" *ngIf="errorMsg">{{ errorMsg }}</p>
+      <div class="switch">
+        <span>Want to explore gigs? <a href="explore.html">Click here</a></span>
       </div>
     </div>
   </div>
+
+
 
 

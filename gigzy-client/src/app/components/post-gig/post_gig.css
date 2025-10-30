@@ -1,9 +1,11 @@
+
+
 :host {
+  background: linear-gradient(120deg, #6a11cb, #2575fc);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(120deg, #6a11cb, #2575fc);
 }
 
 .auth-container { text-align: center; }

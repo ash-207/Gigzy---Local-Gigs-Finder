@@ -25,6 +25,7 @@
               "src/styles.css"
             ],
             "server": "src/main.server.ts",
+            "outputPath": "dist",
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"

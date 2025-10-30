@@ -16,15 +16,15 @@ export class DashboardComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.authService.getCurrentUser().subscribe({
-      next: (user) => {
+    this.authService.user$.subscribe(user => {
+      if (user) {
         this.user = user;
-      },
-      error: (err) => {
-        console.error(err);
-        this.router.navigate(['/login']); // Redirect to login if token is invalid
+      } else {
+        this.router.navigate(['/login']);
       }
     });
+
+    this.authService.getCurrentUser().subscribe();
   }
 
   logout() {
